@@ -1,0 +1,68 @@
+<div id='dialogSection'>
+    <ejs-dialog id='confirmDialog' #confirmDialog width='40%' header='Delete' [showCloseIcon]='enableCloseIcon' [visible]='false' [closeOnEscape]='enableCloseOnEscape' [isModal]='isModal' [target]='dlgTarget' [animationSettings]='animationSettings' (open)='alertDialogOpen()' (overlayClick)='dlgOverlayClicked()'>
+        <div>Are you sure you want to delete the selected transaction(s)?</div>
+    </ejs-dialog>
+    <ejs-dialog id='dialog' #dialog width='100%' height='100%' [showCloseIcon]='enableCloseIcon' [visible]='false' [closeOnEscape]='enableCloseOnEscape' [isModal]='isModal' [target]='dlgTarget' [animationSettings]='animationSettings' (open)='dialogOpen()' (close)='dlgClose()' (overlayClick)='dlgOverlayClicked()'>
+        <div class='dlg-content'>
+            <div class="transaction-dialog">
+                <div class='dlg-radio-btn-section'>
+                    <div class='dlg-income-radio-section'>
+                        <ejs-radiobutton #dlgIncomeRadio label="Income" value="Income" name='dlgTransactionType' (change)="dlgTransactTypeChanged($event)" ></ejs-radiobutton>
+                    </div>
+                    <div class='dlg-expense-radio-section'>
+                        <ejs-radiobutton #dlgExpenseRadio label="Expense" value="Expense" name='dlgTransactionType' checked="true" (change)="dlgTransactTypeChanged($event)"></ejs-radiobutton>
+                    </div>
+                </div>
+                <div class='dlg-date-section'>
+                    <div class='dlg-date-picker-container'>
+                        <div>
+                            <ejs-datepicker #dlgDatePicker placeholder='Choose a Date' width='100%' floatLabelType='Always' [value]='dateValue'></ejs-datepicker>
+                        </div>
+                    </div>
+                        <div class='dlg-time-picker-container'>
+                        <div>
+                            <ejs-timepicker #dlgTimePicker placeholder='Choose a Time' width='100%' floatLabelType='Always' [value]='dateValue'></ejs-timepicker>
+                        </div>
+                    </div>
+                </div>
+                <div class='category-section'>
+                    <div class='dlg-category-container'>
+                        <div>
+                            <ejs-dropdownlist id='category' #dlgDropDown cssClass='Category' placeholder='Select a Category' floatLabelType='Always' [dataSource]='categoryDataSource' [fields]='dropDownFields'></ejs-dropdownlist>
+                        </div>
+                    </div>
+                    <div class='dlg-amount-container'>
+                        <div>
+                            <ejs-numerictextbox #dlgAmount placeholder='Enter a Amount' floatLabelType='Always' format="c2" min="0"></ejs-numerictextbox>
+                        </div>
+                    </div>
+                </div>
+                <div class='description-container'>
+                    <div>
+                        <div class="e-float-input">
+                            <input type='text' #dlgDescription id="description" class="e-input required readonly" />
+                            <span class="e-float-line"></span>
+                            <label class="e-float-text e-label-top">Descriptions</label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class='payment-label'>
+                        <label class="">PaymentMode</label>
+                    </div>
+                    <div class='payment-radio-container'>
+                        <div class='dlg-cash-payment'>
+                            <ejs-radiobutton #dlgCashRadio label="Cash" value="Cash" checked='true' name='dlgPaymentMode'></ejs-radiobutton>
+                        </div>
+                        <div class='dlg-debit-payment'>
+                            <ejs-radiobutton #dlgDebitRadio label="Debit Card" value="Debit Card" name='dlgPaymentMode'></ejs-radiobutton>
+                        </div>
+                        <div class='dlg-credit-payment'>
+                            <ejs-radiobutton #dlgCreditRadio label="Credit Card" value="Credit Card" name='dlgPaymentMode'></ejs-radiobutton>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ejs-dialog>
+</div>
